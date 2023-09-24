@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+<title>Season Breakdown</title>
+<h1 style="text-align: center;">Summit Season Breakdown</h1>
+<h4 style="text-align: center;">Upload your Summit Reforestation paystubs from your planting season.</h4>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    {% if session.get('show_form',1) %}
+        <form method="post" class="form" enctype="multipart/form-data" style="width: 200pt; margin: auto;">
+            <div class="form-group">
+                {{ wtf.quick_form(form, button_map={'submit':'primary'}) }}
+            </div>
+            <!--
+            <div class="form-group">
+                {{ form.submit(class = "btn btn-outline-info") }}
+            </div>
+            -->
+        </form>
+    {% else %}
+        <div style="text-align: center; margin-top: 20pt;">
+            <a href="{{ url_for('update_session') }}" class="btn btn-outline-info" style="text-align: center;">Upload again?</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

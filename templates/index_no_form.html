@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block head %}
+<title>Season Breakdown</title>
+<h1 style="text-align: center;">Summit Season Breakdown</h1>
+<h4 style="text-align: center;">Upload your Summit Reforestation paystubs from your planting season.</h4>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <form method="post" class="form" enctype="multipart/form-data" style="width: 200pt; margin: auto;">
+        <div class="form-group">
+            {{ wtf.quick_form(form, button_map={'submit':'primary'}) }}
+        </div>
+        <!--
+        <div class="form-group">
+            {{ form.submit(class = "btn btn-outline-info") }}
+        </div>
+        -->
+    </form>
+</div>
+{% endblock %}
